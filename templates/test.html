@@ -1,0 +1,151 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<style>
+    /* Add your custom styles here */
+    .form-container {
+        display: none; /* Initially hide the form */
+        margin-top: 20px; /* Adjust margin as needed */
+        padding: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+    }
+    
+
+
+    body {
+    font-family: Arial, sans-serif;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    padding: 10px 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none; /* Hidden by default */
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block; /* Show the dropdown content on hover */
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41; /* Darker green on hover */
+}
+
+</style>
+<link rel="stylesheet" href="/static/css/dashboard.css">
+{% endblock %}
+
+{% block content %}
+<body>
+    <div class="navbar">
+        <div class="menu-icon" id="menuIcon">&#9776;</div>
+    </div>
+    <div class="sidebar" id="sidebar">
+        <h2>Sidebar</h2>
+        <ul>
+            <li><a href="#" id="addTradeLink">Add-trade</a></li>
+            <li><a href="#">Report</a></li>
+            <li><a href="#">Download</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
+
+    <div class="content" id="mainContent">
+        <h1>Dashboard</h1>
+        <p>This is where your main content goes.</p>
+
+        <!-- Form Container -->
+        <div class="form-container" id="addTradeForm">
+            <h2>Add Trade</h2>
+            <form id="tradeForm">
+                <label for="tradeName">Trade Name:</label>
+                <input type="text" id="tradeName" name="tradeName" required><br><br>
+                <label for="tradeAmount">Trade Amount:</label>
+                <input type="number" id="tradeAmount" name="tradeAmount" required><br><br>
+                <button type="submit">Submit</button>
+                <button type="button" id="closeForm">Close</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const menuIcon = document.getElementById('menuIcon');
+        const sidebar = document.getElementById('sidebar');
+        const mainContent = document.getElementById('mainContent');
+        const addTradeLink = document.getElementById('addTradeLink');
+        const addTradeForm = document.getElementById('addTradeForm');
+        const closeFormButton = document.getElementById('closeForm');
+
+        menuIcon.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+
+            // Adjust content margin based on sidebar visibility
+            if (sidebar.classList.contains('active')) {
+                mainContent.style.marginLeft = '250px'; // Shift content to the right
+            } else {
+                mainContent.style.marginLeft = '0'; // Reset content position
+            }
+        });
+
+        addTradeLink.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent default link behavior
+            addTradeForm.style.display = 'block'; // Show the form
+        });
+
+        closeFormButton.addEventListener('click', () => {
+            addTradeForm.style.display = 'none'; // Hide the form
+        });
+    </script>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Dropdown Example</title>
+</head>
+<body>
+    <div class="dropdown">
+        <button class="dropbtn">Select an option</button>
+        <div class="dropdown-content">
+            <a href="#">Option 1</a>
+            <a href="#">Option 2</a>
+            <a href="#">Option 3</a>
+        </div>
+    </div>
+</body>
+</html>
+
+</body>
+{% endblock %}

@@ -1,0 +1,60 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scrollbar */
+}
+
+.navbar {
+    background-color: #333;
+    padding: 10px;
+    position: relative;
+    z-index: 10; /* Ensure navbar is above other content */
+}
+
+.menu-icon {
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.sidebar {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: -250px; /* Hidden by default */
+    background-color: #111;
+    overflow-x: hidden;
+    transition: left 0.3s ease; /* Smooth transition for left position */
+    padding-top: 60px;
+    z-index: 9; /* Ensure sidebar is above content */
+}
+
+.sidebar h2 {
+    color: white;
+    text-align: center;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 15px 20px;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.sidebar.active {
+    left: 0; /* Show the sidebar */
+}
+
+.content {
+    padding: 20px;
+    transition: margin-left 0.3s ease; /* Smooth transition for content margin */
+}

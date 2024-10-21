@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<style>
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: #0a80a3; /* Green */
+    color: white;
+    padding: 5px 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none; /* Hidden by default */
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block; /* Show the dropdown content on hover */
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41; /* Darker green on hover */
+}
+
+</style>
+<link rel="stylesheet" href="/static/css/dashboard.css">
+{% endblock %}
+
+{% block content %}
+<body>
+    <div class="navbar">
+        <div class="menu-icon" id="menuIcon">&#9776;</div>
+    </div>
+    <div class="sidebar" id="sidebar">
+        <h2>Sidebar</h2>
+        <ul>
+            <li><a href="#">Add-trade</a></li>
+            <li><a href="#">Report</a></li>
+            <li><a href="#">Downl</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
+
+    <div class="content" id="mainContent">
+        <h1>Dashboard</h1>
+        <p>This is where your main content goes.</p>
+    </div>
+
+    <script>
+        const menuIcon = document.getElementById('menuIcon');
+        const sidebar = document.getElementById('sidebar');
+        const mainContent = document.getElementById('mainContent');
+
+        menuIcon.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+
+            // Adjust content margin based on sidebar visibility
+            if (sidebar.classList.contains('active')) {
+                mainContent.style.marginLeft = '250px'; // Shift content to the right
+            } else {
+                mainContent.style.marginLeft = '0'; // Reset content position
+            }
+        });
+    </script>
+
+
+    <div class="container-add-form">
+        <div>
+            <form action="">
+                <label for="tradedate">Trade Date : </label>
+                <input type="date" name="tradedate"><br>    
+                <label for="symbel">Symbel :</label>
+                <div class="dropdown">
+                    <button class="dropbtn">Select an option</button>
+                    <div class="dropdown-content">
+                        <a href="#">EUR/USD</a>
+                        <a href="#">USD/JPY</a>
+                        <a href="#">USD/CAD</a>
+                    </div>
+                </div>
+
+
+
+
+            </form>
+
+        </div>
+
+
+
+
+    </div>
+
+
+
+</body>
+{% endblock %}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <style>
+        p {
+        font-size: 16px;          /* Adjust the font size */
+        color: #333;              /* Darker text color for better readability */
+        text-align: center;       /* Center the text */
+        margin-top: 20px;         /* Add some space above the text */
+}
+
+p a {
+    color: #4CAF50;           /* Green color for the link */
+    text-decoration: none;    /* Remove the underline from the link */
+    font-weight: bold;        /* Make the link text bold */
+}
+
+p a:hover {
+    color: #45a049;           /* Darker green on hover */
+    text-decoration: underline; /* Add underline on hover for emphasis */
+}
+    </style>
+</head>
+<body>
+    <div class="reg-form">
+        <form action="/register" method="POST">
+            <div class="form-content">
+                <div class="field-content">
+                    <div>
+                        <!--<label for="fullname" >FullName:</label><br>-->
+                        <input type="text" name="fullname" placeholder="FullName"required>
+                    </div>
+
+                    <div>
+                        <!--<label for="username" >Username:</label><br>-->
+                        <input type="text" name="username" placeholder="Username"required>
+                    </div>
+                </div>
+
+                <div class="field-content">
+                    <div>
+                        <!--<label for="email">Email:</label><br>-->
+                        <input type="email" name="email" placeholder="Enter email"required>
+                    </div>
+                    <div>
+                        <!--<label for="phone-number">Phone Number::</label><br>-->
+                        <input type="tel" name="phone-number"  placeholder="Enter Phone number"required>
+                    </div>
+                </div>
+                
+                <div class="field-content">
+                    <div>
+                        <!--<label for="password">Password:</label><br>-->
+                        <input type="text" name="Password" placeholder="Enter password"required>
+                    </div>
+
+                    <div>
+                       <!-- <label for="confirm-password">Confirm Password:</label><br>-->
+                        <input type="text" name="confirm-password" placeholder="Enter same password" required>
+                    </div>
+                </div>
+                <div class="sub-button">
+                    <button type="submit"> Registration</button>
+
+                </div>
+                <div>
+                    <p>
+                        If you have an account, <a href="{{ url_for('login') }}">Login</a> 
+                    </p>
+
+                </div>
+
+
+
+            </div>
+            
+        </form>
+
+    </div>
+</body>
+</html>
