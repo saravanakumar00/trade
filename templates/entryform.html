@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+/* General form container styling */
+.container-add-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f0f8ff; /* Light blue background */
+    border: 2px solid #87cefa; /* Sky blue border */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Verdana', sans-serif;
+}
+
+/* Form field div styling */
+form div {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Label styling */
+label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #4682b4; /* Steel blue label color */
+    margin-bottom: 5px;
+}
+
+/* Input field styling */
+input[type="text"], input[type="date"], input[type="file"] {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #add8e6; /* Light blue border */
+    border-radius: 5px;
+    background-color: #ffffff;
+    transition: border-color 0.3s;
+}
+
+/* Input focus styling */
+input[type="text"]:focus, input[type="date"]:focus, input[type="file"]:focus {
+    border-color: #1e90ff; /* Dodger blue focus */
+    outline: none;
+}
+
+/* File input custom styling */
+input[type="file"] {
+    padding: 8px;
+    cursor: pointer;
+}
+
+/* Button styling */
+button.btn-1,.btn-2 {
+    padding: 10px 20px;
+    background-color: #ff6347; /* Tomato button color */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+/* Button hover effect */
+button.btn-1:hover {
+    background-color: #ff4500; /* Darker tomato color */
+}
+
+/* Responsive styling for smaller screens */
+@media (max-width: 768px) {
+    .container-add-form {
+        width: 90%;
+        padding: 15px;
+    }
+
+    form div {
+        flex-direction: column;
+    }
+}
+
+/* Additional form layout enhancements */
+.container-add-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Spacing between fields */
+.container-add-form form div {
+    margin-bottom: 20px;
+}
+
+/* Placeholder styling */
+input::placeholder {
+    color: #808080; /* Gray placeholder text */
+    font-style: italic;
+}
+
+
+
+
+
+
+
+
+/* Style for the select (dropdown) */
+select {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #add8e6; /* Light blue border */
+    border-radius: 5px;
+    background-color: #ffffff;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+    width: 100%; /* Make it full width */
+}
+
+/* Focus effect */
+select:focus {
+    border-color: #1e90ff; /* Dodger blue border on focus */
+    outline: none;
+}
+
+/* Option styling */
+select option {
+    font-size: 14px;
+    padding: 10px;
+}
+
+
+
+    </style>
+</head>
+<body>
+    <div class="container-add-form">
+        <form action="">
+            <div>
+                <label for="tradedate">Tradedate</label>
+                <input type="date">
+            </div>
+            <div>
+                <label for="symbel">Symbel</label>
+                <select name="symbol" id="symbol">
+                    <option value="EURUSD">EUR/USD</option>
+                    <option value="GBPUSD">GBP/USD</option>
+                    <option value="USDJPY">USD/JPY</option>
+                    <option value="AUDUSD">AUD/USD</option>
+                    <option value="USDCAD">USD/CAD</option>
+                    <option value="NZDUSD">NZD/USD</option>
+                    <option value="USDCHF">USD/CHF</option>
+                    <option value="EURGBP">EUR/GBP</option>
+                </select>
+            </div>
+            <div>
+                <label for="entryprice">Entry price</label>
+                <input type="text" name="entryprice">
+            </div>
+            <div>
+                <label for="initial-price">Initial-price</label>
+                <input type="text"name="initial-price">
+            </div>
+            <div>
+                <label for="profit">Profit</label>
+                <input type="text" name="profit">
+
+            </div>
+            <div>
+                <label for="loss">Loss</label>
+                <input type="text" name="loss">
+            </div>
+
+            <div>
+                <label for="opencommand">Open Command</label>
+                <input type="text" name="opencommand">
+            </div>
+            <div>
+                <label for="closecommand">Close Command</label>
+                <input type="text" name="closecommand">
+            </div>
+            <div>
+                <label for="attachement">Trade attachement</label>
+                <input type="file" name="attachement">
+            </div>
+            <button class="btn-1">Add</button>
+            <button class="btn-2" id="closeForm">Close</button>
+        </form>
+
+    </div>
+
+
+
+
+    <script>
+        const addTradeLink = document.getElementById('trade-add');
+        const addTradeForm = document.getElementById('container-add-form');
+        const closeFormButton = document.getElementById('closeForm');
+        
+        addTradeLink.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent default link behavior
+            addTradeForm.style.display = 'block'; // Show the form
+        });
+
+        closeFormButton.addEventListener('click', () => {
+            addTradeForm.style.display = 'none'; // Hide the form
+        });
+
+
+    </script>
+</body>
+</html>
